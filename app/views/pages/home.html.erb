@@ -2,8 +2,19 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <%= form_tag root_path, method: :get do %>
+  <%= label_tag :"Ask a question" %>
   <%= text_field_tag :query, params[:query] %>
   <%= submit_tag "Go!" %>
 <% end %>
 
 <%= @response %>
+
+<%= form_tag root_path, method: :get do %>
+  <%= label_tag :"Look for images" %>
+  <%= text_field_tag :image, params[:image] %>
+  <%= submit_tag "Go!" %>
+<% end %>
+
+<% @images.each do |image| %>
+  <img src="<%= image["url"] %>" alt="">
+<% end %>
